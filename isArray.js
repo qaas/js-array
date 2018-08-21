@@ -2,7 +2,6 @@
     Array.isArray() method determines whether the value passed is an array
     It returns a boolean [true, false]
 
-    Returns if a value is an array
     Other function implementation to check if a value is an array
       function isArray (value) {
         return value && typeof value === 'object' && value.constructor === Array;
