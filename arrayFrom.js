@@ -21,8 +21,7 @@
     References:
     https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from
     http://speakingjs.com/es5/ch17.html#array-like_objects
-
-
+    http://exploringjs.com/es6/ch_arrays.html
  */
 
 let arrayFromString = Array.from('King George')
@@ -61,8 +60,8 @@ console.log(arraySequence)  // [ undefined, undefined, undefined, undefined, und
  */
 
 let arraySequenceMap = Array.from({length: 5}, function (v, i) {
-  //console.log('value of v', v, 'value of i', i)
   /*
+    console.log('value of v', v, 'value of i', i)
     value of v undefined value of i 0
     value of v undefined value of i 1
     value of v undefined value of i 2
@@ -75,7 +74,12 @@ let arraySequenceMap = Array.from({length: 5}, function (v, i) {
 console.log(arraySequenceMap) // [ 0, 1, 2, 3, 4 ]
 
 // Expanding on previous example an array like conversion will return an array from the values of arrayLike variable
-let arrayLike = {length: 2, 0: 'a', 1: 'b'}
+let arrayLike = {
+  length: 2,
+  0: 'a',
+  1: 'b'
+}
+
 let arrayFromArrayLike = Array.from(arrayLike)
 console.log(arrayFromArrayLike) // [ 'a', 'b' ]
 
