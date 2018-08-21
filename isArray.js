@@ -2,7 +2,6 @@
     Array.isArray() method determines whether the value passed is an array
     It returns a boolean [true, false]
 
-
     Returns if a value is an array
     Other function implementation to check if a value is an array
       function isArray (value) {
@@ -11,6 +10,7 @@
 
     Reference:
     https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray
+    https://gist.github.com/rwaldron/1074126
 
  */
 
@@ -22,3 +22,12 @@ Array.isArray(new Array('a', 'b', 'c', 'd'))
 Array.isArray(new Array(3))
 // Little known fact: Array.prototype itself is an array:
 Array.isArray(Array.prototype)
+
+/*
+  Array.of vs the existing behaviour of new Array()
+ */
+Array.of( 10 );
+// [ 10 ]
+
+new Array( 10 );
+// [ , , , , , , , , , , ]
