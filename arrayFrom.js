@@ -26,22 +26,23 @@ console.log(Array.from(mapper.values()))  // [ 'a', 'b' ]
 
 /*
   Something that I found quite strange when I first saw this.
-  Looking into lib.es5.d.ts the way how is
-  implemented is :
+  Looking into lib.es5.d.ts the way how is implemented is :
 
     interface ArrayLike<T> {
       readonly length: number;
       readonly [n: number]: T;
     }
 
-  accepting a length parameter
+  accepting a length parameter which will generate an array of the given length having each element as
+  undefined
+
+
  */
 let arraySequence = Array.from({length: 5})
 console.log(arraySequence)  // [ undefined, undefined, undefined, undefined, undefined ]
 
 /*
-  With a mapping function, we iterate over the generated array, and for every element we return the index
-  updating the undefined with the current index
+  With a mapping function, we iterate over the generated array, replacing undefined with the current index i
  */
 
 let arraySequenceMap = Array.from({length: 5}, function (v, i) {
