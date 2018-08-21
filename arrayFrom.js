@@ -1,14 +1,28 @@
 /*
   The Array.from() method creates a new, shallow-copied Array instance
   from an array-like [objects with a length property and indexed elements] or an
-  iterable object [map and set].
+  iterable object [Arrays, Strings, Maps, Sets, DOM data structures]
 
   Syntax :: Array.from(arrayLike[, mapFn[, thisArg]])
 
     - mapFN   : optional : execute a map function on each element of the array
     - thisArg : optional : value to use as *this* when executing mapFn
 
+
+    What is an array-like?
+    In Javascript there are are some objects that look like an array but aren't one. While they have
+    index access and length they don't have any of array methods.
+    Examples:
+      - the special *arguments* variable
+      - browser dom node lists
+      - strings
+
+
+    References:
     https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from
+    http://speakingjs.com/es5/ch17.html#array-like_objects
+
+
  */
 
 let arrayFromString = Array.from('King George')
@@ -47,7 +61,7 @@ console.log(arraySequence)  // [ undefined, undefined, undefined, undefined, und
  */
 
 let arraySequenceMap = Array.from({length: 5}, function (v, i) {
-  console.log('value of v', v, 'value of i', i)
+  //console.log('value of v', v, 'value of i', i)
   /*
     value of v undefined value of i 0
     value of v undefined value of i 1
@@ -59,3 +73,13 @@ let arraySequenceMap = Array.from({length: 5}, function (v, i) {
   return i
 })
 console.log(arraySequenceMap) // [ 0, 1, 2, 3, 4 ]
+
+// Expanding on previous example an array like conversion will return an array from the values of arrayLike variable
+let arrayLike = {length: 2, 0: 'a', 1: 'b'}
+let arrayFromArrayLike = Array.from(arrayLike)
+console.log(arrayFromArrayLike) // [ 'a', 'b' ]
+
+/*
+  DOM manipulation: get all the divs on one page
+ */
+let arrayFromNodeList = Array.from(document.querySelectorAll('div'))
