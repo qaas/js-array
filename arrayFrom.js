@@ -36,13 +36,14 @@ console.log(Array.from(mapper.values()))  // [ 'a', 'b' ]
   accepting a length parameter which will generate an array of the given length having each element as
   undefined
 
-
  */
+
 let arraySequence = Array.from({length: 5})
 console.log(arraySequence)  // [ undefined, undefined, undefined, undefined, undefined ]
 
 /*
-  With a mapping function, we iterate over the generated array, replacing undefined with the current index i
+  Using the optional mapping function, we iterate over the generated array,
+  replacing undefined with the current index i
  */
 
 let arraySequenceMap = Array.from({length: 5}, function (v, i) {
